@@ -5,6 +5,7 @@ export GOPATH="/home/freakycoder/go"
 # Custom $PATH exports
 export PATH=$PATH:/usr/local/go/bin
 export PATH="$PATH:$(go env GOPATH)/bin"
+export PATH="$HOME/.cargo/bin:$PATH"
 # npm conflicts
 export PATH="$HOME/.node_modules/bin:$PATH"
 export npm_config_prefix=~/.node_modules
@@ -105,6 +106,14 @@ export VISUAL='nvim'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
+
+# NNN configuration
+export NNN_COLORS="2136"
+export LC_COLLATE="C"
+if [ -f /usr/share/nnn/quitcd/quitcd.bash_zsh ]; then
+    source /usr/share/nnn/quitcd/quitcd.bash_zsh
+fi
+alias n="nnn -d -H"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh

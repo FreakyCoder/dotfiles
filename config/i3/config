@@ -50,6 +50,8 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
+# start web browser
+bindsym $mod+Shift+t exec qutebrowser
 
 # kill focused window
 bindsym $mod+q kill
@@ -103,13 +105,13 @@ bindsym $mod+e layout toggle split
 bindsym $mod+Shift+d floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+d focus mode_toggle
+# bindsym $mod+d focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
 
 # focus the child container
-#bindsym $mod+d focus child
+bindsym $mod+d focus child
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -163,9 +165,10 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # remove title bar
 for_window [class=".*"] border pixel 2
-client.focused #ee3275 #74122d #ffffff #ffffff #ee3275
-client.focused_inactive #74122d #ee3275 #ffffff #ffffff #74122d
-client.unfocused #74122d #ee3275 #ffffff #ffffff #74122d
+# set window colors
+client.focused #ee3275 #74122d #ffffff #ee3275 #ee3275
+client.focused_inactive #74122d #ee3275 #ffffff #74122d #74122d
+client.unfocused #74122d #ee3275 #ffffff #74122d  #74122d
 
 # add gaps
 gaps inner 5
