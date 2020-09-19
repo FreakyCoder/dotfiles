@@ -36,7 +36,7 @@ exec --no-startup-id nm-applet
 # Start the compositor
 exec --no-startup-id picom
 # Start the wallpaper
-exec --no-startup-id nitrogen --restore
+exec --no-startup-id feh --bg-scale ~/.config/wallpaper.*
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
