@@ -9,6 +9,7 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
+# Set mod key
 set $mod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -48,10 +49,14 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+# Program launcher
+set $launcher Ctrl
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+$launcher+Return exec i3-sensible-terminal
 # start web browser
-bindsym $mod+Shift+t exec qutebrowser
+bindsym $mod+$launcher+b exec qutebrowser
+# start VS Code
+bindsym $mod+$launcher+v exec code-insiders
 
 # kill focused window
 bindsym $mod+q kill
