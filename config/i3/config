@@ -25,7 +25,7 @@ font pango:DejaVu Sans Mono 8
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lockr --blur 50
 
 # set functions keys
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -ctrl intel_backlight -inc 10
@@ -45,6 +45,8 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+# Start Logitech keyboard lighting
+exec --no-startup-id keyledsd
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -54,7 +56,7 @@ set $launcher Ctrl
 # start a terminal
 bindsym $mod+$launcher+Return exec i3-sensible-terminal
 # start web browser
-bindsym $mod+$launcher+b exec qutebrowser
+bindsym $mod+$launcher+b exec firefox
 # start VS Code
 bindsym $mod+$launcher+v exec code-insiders
 
