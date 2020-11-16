@@ -107,14 +107,6 @@ export VISUAL='nvim'
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# NNN configuration
-export NNN_COLORS="2136"
-export LC_COLLATE="C"
-if [ -f /usr/share/nnn/quitcd/quitcd.bash_zsh ]; then
-    source /usr/share/nnn/quitcd/quitcd.bash_zsh
-fi
-alias n="nnn -d -H"
-
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -134,6 +126,16 @@ else
 	red="%F{red}"
 	green="%F{green}"
 fi 
+pa-list() { pacmd list-sinks | awk '/index/ || /name:/' ;}
+pa-set() { 
+	# list all apps in playback tab (ex: cmus, mplayer, vlc)
+	inputs=($(pacmd list-sink-inputs | awk '/index/ {print $2}')) 
+	# set the default output device
+	pacmd set-default-sink $1 &> /dev/null
+	# apply the changes to all running apps to use the new output device
+	for i in ${inputs[*]}; do pacmd move-sink-input $i $1 &> /dev/null; done
+}
+
 #syntax highlighting
 ZSH_HIGHLIGHT_STYLES[reserved-word]="fg=blue"
 ZSH_HIGHLIGHT_STYLES[command]="fg=107"
@@ -145,4 +147,3 @@ if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] &&
       exec tmux
 fi
 [[ $- != *i* ]] && return alias ohmyzsh="mate ~/.oh-my-zsh"
-
