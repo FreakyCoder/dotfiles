@@ -178,8 +178,8 @@ client.focused_inactive #74122d #ee3275 #ffffff #74122d #74122d
 client.unfocused #74122d #ee3275 #ffffff #74122d  #74122d
 
 # add gaps
-gaps inner 1
-gaps outer 5
+gaps inner 5
+gaps outer 1
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
