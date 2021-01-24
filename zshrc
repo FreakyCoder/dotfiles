@@ -161,8 +161,3 @@ ZSH_HIGHLIGHT_STYLES[command]="fg=107"
 ZSH_HIGHLIGHT_STYLES[builtin]="fg=107"
 ZSH_HIGHLIGHT_STYLES[alias]="fg=107"
 
-# If not running interactively, don't do anything
-if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-      exec tmux
-fi
-[[ $- != *i* ]] && return alias ohmyzsh="mate ~/.oh-my-zsh"

@@ -1,4 +1,4 @@
-background_opacity: 0.9
+background_opacity: 0.8
 cursor:
         style: Block
 window: 
@@ -27,7 +27,7 @@ font:
 
 colors: 
         primary:
-                background: "#333333"
+                background: "#22222b"
                 foreground: "#ffffff"
         cursor: 
                 text: "#000000"
